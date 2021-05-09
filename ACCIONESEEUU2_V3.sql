@@ -1,4 +1,4 @@
-USE [SNTBROKER_SIE_V3]
+USE [SNTBROKER_SIE_MEJORADA]
 GO
 
 /****** Object:  Table [dbo].[ACCIONESEEUU_V2]    Script Date: 22/02/2021 17:57:16 ******/
