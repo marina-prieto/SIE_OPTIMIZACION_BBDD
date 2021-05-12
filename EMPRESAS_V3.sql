@@ -1,3 +1,4 @@
+  
 /****** Object:  Table [dbo].[EMPRESAS_V3]    Script Date: 22/02/2021 17:55:26 ******/
 SET ANSI_NULLS ON
 GO
@@ -14,23 +15,23 @@ USE [SNTBROKER_SIE_MEJORADA]
 GO
 
 CREATE TABLE [dbo].[EMPRESAS_V3](
-	[ID_EMPRESA] [INT] NOT NULL,
-	[CLAVE] [VARCHAR] (18) NOT NULL,
+	[ID_EMPRESA] [SMALLINT] NOT NULL,
+	[CLAVE] [VARCHAR] (10) NOT NULL,
 	[ISIN] [VARCHAR] (12) NOT NULL,
 	[NOMBRE] [VARCHAR] (35) NOT NULL,
-	[ID_MERCADO] [INT] NOT NULL,
-	[ID_SECTOR] [INT] NULL,
+	[ID_MERCADO] [SMALLINT] NOT NULL,
+	[ID_SECTOR] [SMALLINT] NULL,
 	[FECHA_INSERCION] [SMALLDATETIME] NOT NULL
 ) ON [PRIMARY]
 GO
 
 INSERT INTO [dbo].[EMPRESAS_V3]
 select
-	convert(INT,IdEmpresa) as ID_EMPRESA,
-	convert(VARCHAR (18),Clave) as CLAVE,
+	convert(SMALLINT,IdEmpresa) as ID_EMPRESA,
+	convert(VARCHAR (10),Clave) as CLAVE,
 	convert(VARCHAR (12),Isin) as ISIN,
 	convert(VARCHAR (35),Nombre) as NOMBRE,
-	convert(INT,IdMercado) as ID_MERCADO,
-	convert(INT,IdSector) as ID_SECTOR,
+	convert(SMALLINT,IdMercado) as ID_MERCADO,
+	convert(SMALLINT,IdSector) as ID_SECTOR,
 	convert(SMALLDATETIME,FechaInsercion) as FECHA_INSERCION
 from [SNTBROKER_SIE].[dbo].[EMPRESAS_V2];
