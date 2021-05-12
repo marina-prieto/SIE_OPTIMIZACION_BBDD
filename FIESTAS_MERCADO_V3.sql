@@ -8,14 +8,14 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE TABLE [dbo].[FIESTAS_MERCADO_V3](
-	[ID_MERCADO] int NOT NULL,
+CREATE TABLE [dbo].[FIESTAS_MERCADOS_V3](
+	[ID_MERCADO] SMALLint NOT NULL,
 	[FECHA] [smalldatetime] NOT NULL
 ) ON [PRIMARY]
 GO
 
-insert into [dbo].[FIESTAS_MERCADO_V3]
+insert into [dbo].[FIESTAS_MERCADOS_V3]
 select
-	convert(int,IdMercado) as ID_MERCADO,
+	convert(SMALLint,IdMercado) as ID_MERCADO,
 	convert(smalldatetime,Fecha) as FECHA
 from [SNTBROKER_SIE].[dbo].[FiestasMercados_v2]
