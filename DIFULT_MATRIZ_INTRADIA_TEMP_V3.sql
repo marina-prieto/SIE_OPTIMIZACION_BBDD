@@ -1,0 +1,29 @@
+USE [SNTBROKER_SIE_MEJORADA]
+GO
+
+/****** Object:  Table [dbo].[DIFULT_MATRIZ_INTRADIA_TEMP_V2]    Script Date: 26/02/2021 12:47:16 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[DIFULT_MATRIZ_INTRADIA_TEMP_V3](
+	[ID_MERCADO] [smallint] NOT NULL,
+	[ID_EMPRESA] [smallint] NOT NULL,
+	[CLAVE] [varchar](10) NOT NULL,
+	[FECHA] [smalldatetime] NOT NULL,
+	[MATRIZ] [varchar](80) NOT NULL,
+	[PATRON] [varchar](70) NOT NULL
+) ON [PRIMARY]
+GO
+
+INSERT INTO [SNTBROKER_SIE_MEJORADA].[dbo].[DIFULT_MATRIZ_INTRADIA_TEMP_V3]
+select
+ convert(smallint, IDMERCADO) as ID_MERCADO,
+ convert(smallint, IDEMPRESA)  as ID_EMPRESA,
+ convert(varchar(10), CLAVE)  as CLAVE,
+ TRY_PARSE(CONCAT(MES,'-',DIA,'-',ANNIO) AS SMALLDATETIME USING 'en-us') AS FECHA,
+ convert(varchar(80), MATRIZ1) as MATRIZ,
+ convert(varchar(70), MATRIZ2)  as PATRON
+from [SNTBROKER_SIE].[dbo].[DIFULT_MATRIZ_INTRADIA_TEMP_V2]
