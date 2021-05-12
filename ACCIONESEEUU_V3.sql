@@ -9,15 +9,17 @@ SET QUOTED_IDENTIFIER ON
 GO
 
 CREATE TABLE [dbo].[ACCIONESEEUU_V3](
-	[Sector] [nvarchar] (30) NOT NULL,
-	[Simbolo] [nvarchar](10) NOT NULL,
-	[Nombre] [nvarchar](20) NOT NULL
+	[ID_SECTOR] [SMALLINT] NOT NULL,
+	[CLAVE] [VARCHAR](10) NOT NULL,
+	[NOMBRE] [VARCHAR] (20) NOT NULL
+
 ) ON [PRIMARY]
 GO
 
-insert into [dbo].[ACCIONESEEUU_V3]
-select
-	convert(nvarchar(30),Sector) as Sector,
-	convert(nvarchar(10),Simbolo) as Simbolo,
-	convert(nvarchar(20), Nombre) as Nombre
-from [SNTBROKER_SIE].[dbo].[ACCIONESEEUU_V2];
+INSERT INTO [dbo].[ACCIONESEEUU_V3]
+SELECT
+	CONVERT(SMALLINT, IdSector) as ID_SECTOR,
+	CONVERT(VARCHAR(10), Simbolo) as CLAVE,
+	CONVERT (VARCHAR(20), Nombre) as NOMBRE
+FROM [SNTBROKER_SIE].[dbo].[ACCIONESEEUU_V2] A, [SNTBROKER_SIE].[dbo].[SECTORES_V2] B 
+WHERE B.Sector = A.Sector;
