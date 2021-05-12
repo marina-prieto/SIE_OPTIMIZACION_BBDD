@@ -8,8 +8,8 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE TABLE [dbo].[SECTORES_v3](
-	[ID_SECTOR] [int] NOT NULL,
+CREATE TABLE [dbo].[SECTORES_V3](
+	[ID_SECTOR] [SMALLint] NOT NULL,
 	[SECTOR] [varchar](40) NOT NULL
 ) ON [PRIMARY]
 GO
@@ -18,6 +18,6 @@ INSERT INTO SECTORES_V3 VALUES (0, 'No definido')
 
 insert into [dbo].[SECTORES_v3]
 select
-	convert(int,IdSector) as ID_SECTOR,
+	convert(SMALLint,IdSector) as ID_SECTOR,
 	convert(varchar(40),Sector) as SECTOR
 from [SNTBROKER_SIE].[dbo].[SECTORES_v2];
