@@ -11,7 +11,7 @@ GO
 CREATE TABLE [dbo].[VOLMED_INTRADIA_TEMP_V3](
 	[ID_MERCADO] [smallint] NOT NULL,
     [ID_EMPRESA] [smallint] NOT NULL,
-    [CLAVE] [varchar](5) NOT NULL,
+    [CLAVE] [varchar](10) NOT NULL,
     [15_30] [real] NOT NULL,
     [15_35] [real] NOT NULL,
     [15_40] [real] NOT NULL,
@@ -98,7 +98,7 @@ INSERT INTO [dbo].[VOLMED_INTRADIA_TEMP_V3]
 select
 	convert(smallint, IDMERCADO) as ID_MERCADO,
 	convert(smallint, IDEMPRESA) as ID_EMPRESA,
-	convert(varchar(5), CLAVE) as CLAVE,
+	convert(varchar(10), CLAVE) as CLAVE,
     convert(real, [15_30]) as [15_30],
     convert(real, [15_35]) as [15_35],
     convert(real, [15_40]) as [15_40],
