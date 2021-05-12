@@ -14,6 +14,8 @@ CREATE TABLE [dbo].[SECTORES_v3](
 ) ON [PRIMARY]
 GO
 
+INSERT INTO SECTORES_V3 VALUES (0, 'No definido')
+
 insert into [dbo].[SECTORES_v3]
 select
 	convert(int,IdSector) as ID_SECTOR,
