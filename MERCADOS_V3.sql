@@ -9,7 +9,7 @@ SET QUOTED_IDENTIFIER ON
 GO
 
 CREATE TABLE [dbo].[MERCADOS_V3](
-	[ID_MERCADO] [varchar](6) NOT NULL,
+	[ID_MERCADO] [INT] NOT NULL,
 	[MERCADO] [nvarchar](40) NOT NULL,
 	[HORA_LOCAL_INICIO] [varchar](5) NOT NULL,
 	[HORA_LOCAL_CIERRE] [varchar](5) NOT NULL,
@@ -24,7 +24,7 @@ GO
 
 insert into [dbo].[MERCADOS_V3]
 select
-	convert(varchar(6),IdMercado) as ID_MERCADO,
+	convert(int,IdMercado) as ID_MERCADO,
 	convert(nvarchar(40),Mercado) as MERCADO,
 	convert(varchar(5),HoraLocalInicio) as HORA_LOCAL_INICIO,
 	convert(varchar(5),HoraLocalCierre) as HORA_LOCAL_CIERRE,
